@@ -1,4 +1,4 @@
-# ChecksandCities
+# Checks and Cities
 A salary comparison dashboard
 
 
