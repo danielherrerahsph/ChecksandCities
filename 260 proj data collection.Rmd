@@ -312,28 +312,8 @@ cln_price <- function(citydata){
 mydata <- make_df(cities_list)
 ```
 
-```{r}
-library(rpart)
 
-citydata <- read.csv("col_citydata.csv", header = TRUE)
-rows_to_cols <- citydata %>% spread(metrics, price)
-colnames(rows_to_cols) <- c("city", "apt_in_center", "apt_out_center", "salary", "basics", "internet", "meal_for_2", "inexpensive_meal")
 
-#predicting average salary based on the other metrics
-
-salary_lm <- lm(salary ~ apt_in_center + apt_out_center + basics + internet + inexpensive_meal, data = rows_to_cols)
-summary(salary_lm)
-
-fit_rpart <- rpart(salary ~ apt_in_center + apt_out_center + basics + internet + inexpensive_meal, data = rows_to_cols) 
-rpart.plot(fit_rpart, digits = 4)
-
-fit <- tree(salary ~ apt_in_center + apt_out_center + basics + internet + inexpensive_meal, data = rows_to_cols)
-plot(fit, type = "uniform")
-text(fit, cex = 1)
-
-#the rpart plot is prettier, but the second tree gives more info. 
-
-```
 
 
 
