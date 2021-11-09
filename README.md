@@ -3,8 +3,9 @@ A salary comparison dashboard
 
 
 ## Collect Data
-The cost of living data for this dashboard was collected using webscraping with the 'rvest' and 'httr' packages within R. This data was then cleaned tilizing the tidyverse, and subsequent dplyr funcitons, and will be utilized within the shiny app. The data can be found as colcity_data.csv.
-The wages data for this dashboard was collected from the Bureau of Labor Statistics (BLS) for 50 cities in the United States. This data were lightly cleaned and are found as wages_norepeats.csv. 
+The cost of living data for this dashboard was collected using webscraping with the 'rvest' and 'httr' packages within R. This data was then cleaned utilizing the tidyverse, and subsequent dplyr funcitons, and will be utilized within the shiny app. The data can be found as colcity_data.csv. The current markdown file will not attempt to create this dataset again since it requires assessing the server to pull the data for the cost of living. We do this to be polite, but leave the command in the file commented out. 
+
+The wages data for this dashboard was collected from the Bureau of Labor Statistics (BLS) for 50 cities in the United States. The data are accessible online. This data were lightly cleaned and are found as wages_norepeats.csv. 
 
 Both of these datasets are found within the folder for the shiny app, so they will be found when implementing the shiny app. 
 
