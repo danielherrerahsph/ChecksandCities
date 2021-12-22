@@ -1,8 +1,11 @@
 ---
-title: "260 Project rough start"
+title: "260 Project Data collection and cleaning"
 output: html_document
 ---
 
+### Data collection
+
+Let's start this project.
 
 First we can upload the cost of living (COL) for Boston, MA. Would you look at that, it is pretty expensive to live in Boston. 
 
@@ -235,7 +238,6 @@ final$`Annual Wage`[final$`Annual Wage` == "*"] <- NA
 final$`Hourly Wage`[final$`Hourly Wage` == "#"] <- ">100"
 final$`Annual Wage`[final$`Annual Wage` == "#"] <- ">208000"
 
-View(final)
 
 
 ```
@@ -259,18 +261,21 @@ for (i in 1:nrow(final)){
 #looping over the rows of the data frame and extracting the rows with unique city and occupation
 
 no_repeats <- no_repeats %>% filter(!(City %in% NA)) #removing all NAs that were created.
-View(no_repeats)
 
 # save this file locally
-# write.csv(no_repeats,"C:/Users/Rindala/Desktop/Harvard/FALL 2021/BST 260/260-Project\\wages_norepeats.csv", row.names = FALSE)
+#  write.csv(no_repeats,"/Users/danielherrera/Documents/wages_norepeats.csv", row.names = FALSE)
 ```
 
-
-
+Now we want to remove the "All Other" from the Occupations
 ```{r}
-temp <- read.csv(file = "col_citydata.csv", header = TRUE)
-View(temp)
+cleaned_occupations <- no_repeats %>% 
+  mutate_at("Occupation", str_replace, ", All Other", "")
+
+#save this file locally
+# write.csv(cleaned_occupations,"/Users/danielherrera/Documents/cleaned_occupations.csv", row.names = FALSE)
+
 ```
+
 
 Previously, we selected specific elements from numbeo of interest. However, below we will get all elements from numbeo related to cost of living. This will be cleaned and stored locally. However, it will also exist as full_col_data.csv within the project folder. 
 
@@ -330,11 +335,11 @@ cln_full <- function(alldata){
 #############################################
 
 
-#mydata <- make_df(cities_list)
-#full_col_data <- cln_full(mydata)
+# mydata <- make_df(cities_list)
+# full_col_data <- cln_full(mydata)
 
 # write this csv locally and upload it to the shiny server , as well as to this project file
-# write_csv(full_col_data, "C:/Users/herrerad/Documents/full_col_data.csv")
+# write_csv(full_col_data, "/Users/danielherrera/Documents/full_col_data.csv")
 ```
 
 
