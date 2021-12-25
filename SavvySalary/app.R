@@ -1,5 +1,6 @@
 library(shinythemes)
 library(shiny)
+library(shinyWidgets)
 library(tidyverse)
 library(ggthemes)
 library(ggrepel)
@@ -45,7 +46,9 @@ occupations <- sort(unique(wages$occupation))
 # Define UI ----
 ui <- fluidPage(theme = shinytheme("sandstone"),
                 titlePanel("Checks & Cities"),
-                
+                setBackgroundImage(
+                    src = "https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm283-nunny-030_1.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&auto=format&ixlib=js-2.2.1&s=20dc84128067233e1b7bb21f44a7396c"
+                ),
                 # create first tab 
                 tabsetPanel(
                     # name the tab
@@ -83,7 +86,7 @@ ui <- fluidPage(theme = shinytheme("sandstone"),
                                                  label = "What occupation category best represents yours?", choices = occupations, selected = "Data Scientists and Mathematical Science Occupations, All Other")),
                                  # for this panel this is the main panel output
                                  mainPanel(
-                                     plotOutput(outputId = "jobsalary", height = 700))
+                                     plotOutput(outputId = "jobsalary", height = 600))
                              )
                     ),
                     
@@ -111,7 +114,7 @@ ui <- fluidPage(theme = shinytheme("sandstone"),
                                                  label = "What city is your second offer in?", choices = cities, selected = "Boston")),
                                  # this is the main panel output for this tab
                                  mainPanel(
-                                     plotOutput(outputId = "comparison", height = 700)
+                                     plotOutput(outputId = "comparison", height = 600)
                                  )
                              )
                     )
