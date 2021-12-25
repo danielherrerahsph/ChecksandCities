@@ -1,6 +1,7 @@
 # Checks and Cities
 A salary comparison dashboard and analysis into cost of living and salary data. 
 
+**Shiny dashboard link:** https://danielherrerahsph.shinyapps.io/ChecksandCities/
 
 ## Data Collection
 File: 260 proj data collection.rmd
